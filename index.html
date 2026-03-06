@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevHub - المنصة العربية للمبرمجين</title>
-    <!-- Google Fonts للخطوط الاحترافية -->
+    <title>DevHub - منصة المبرمجين العرب</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             min-height: 100vh;
         }
 
@@ -37,7 +37,7 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #667eea;
+            color: #1e3c72;
             text-decoration: none;
         }
 
@@ -54,27 +54,38 @@
         }
 
         .nav-links a:hover {
-            color: #667eea;
+            color: #1e3c72;
         }
 
-        /* Main Content */
+        /* Hero Section */
         .hero {
             text-align: center;
             color: white;
-            padding: 80px 20px;
+            padding: 100px 20px;
         }
 
         .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
+            font-size: 4.5rem;
+            margin-bottom: 30px;
             animation: fadeInUp 1s ease;
+            line-height: 1.2;
         }
 
-        .hero p {
-            font-size: 1.5rem;
+        .hero .subtitle {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .hero .description {
+            font-size: 1.3rem;
             margin-bottom: 40px;
             opacity: 0.95;
-            animation: fadeInUp 1s ease 0.2s both;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
         }
 
         @keyframes fadeInUp {
@@ -88,74 +99,85 @@
             }
         }
 
+        /* Statistics */
         .stats {
             display: flex;
             justify-content: center;
-            gap: 50px;
+            gap: 60px;
             margin: 60px 0;
-            animation: fadeInUp 1s ease 0.4s both;
+            flex-wrap: wrap;
         }
 
         .stat-item {
             background: rgba(255,255,255,0.1);
-            padding: 30px;
+            padding: 30px 40px;
             border-radius: 20px;
             backdrop-filter: blur(10px);
-            min-width: 150px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .stat-item h3 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: #ffd700;
+            margin-bottom: 10px;
         }
 
+        .stat-item p {
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        /* CTA Buttons */
         .cta-buttons {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             justify-content: center;
-            margin: 40px 0;
+            margin: 50px 0;
+            flex-wrap: wrap;
         }
 
         .btn {
-            padding: 15px 40px;
+            padding: 18px 50px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.2rem;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s;
             display: inline-block;
         }
 
         .btn-primary {
-            background: white;
-            color: #667eea;
+            background: #ffd700;
+            color: #1e3c72;
         }
 
         .btn-secondary {
             background: transparent;
             color: white;
-            border: 2px solid white;
+            border: 2px solid #ffd700;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
         }
 
         .section-title {
             color: white;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             text-align: center;
-            margin: 60px 0 30px;
+            margin: 80px 0 40px;
         }
 
+        /* Developers Grid */
         .developers-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 30px;
         }
 
         .developer-card {
@@ -163,45 +185,45 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s;
             cursor: pointer;
         }
 
         .developer-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
         }
 
         .card-header {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
             color: white;
-            padding: 30px;
+            padding: 35px;
             text-align: center;
         }
 
         .avatar {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             background: white;
             border-radius: 50%;
             margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            color: #667eea;
+            font-size: 3.5rem;
+            color: #1e3c72;
             font-weight: bold;
             border: 4px solid #ffd700;
         }
 
         .card-body {
-            padding: 20px;
+            padding: 25px;
         }
 
         .developer-name {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: #333;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             text-align: center;
         }
 
@@ -209,149 +231,120 @@
             color: #666;
             text-align: center;
             margin-bottom: 15px;
+            font-size: 1rem;
         }
 
         .skills-preview {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin: 15px 0;
+            margin: 20px 0;
+            justify-content: center;
         }
 
         .skill-tag {
             background: #f0f0f0;
-            padding: 5px 12px;
+            padding: 6px 15px;
             border-radius: 50px;
-            font-size: 0.9rem;
-            color: #667eea;
-            border: 1px solid #764ba2;
+            font-size: 0.95rem;
+            color: #1e3c72;
+            border: 1px solid #2a5298;
         }
 
         .projects-count {
-            color: #667eea;
+            color: #1e3c72;
             font-weight: bold;
-            margin-top: 10px;
-        }
-
-        /* Search and Filter */
-        .search-section {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 0 20px;
-            display: flex;
-            gap: 15px;
-        }
-
-        .search-input {
-            flex: 1;
-            padding: 15px 25px;
-            border: none;
-            border-radius: 50px;
+            margin-top: 15px;
             font-size: 1.1rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .search-btn {
-            padding: 15px 30px;
-            background: #ffd700;
-            color: #333;
-            border: none;
-            border-radius: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .search-btn:hover {
-            background: #ffed4a;
-        }
-
-        .filter-section {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .filter-btn {
-            padding: 10px 25px;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 2px solid transparent;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background: #ffd700;
-            color: #333;
-            border-color: #ffd700;
+            text-align: center;
         }
 
         /* Footer */
         .footer {
-            background: #1a202c;
+            background: #0a1a2f;
             color: white;
-            padding: 60px 5% 20px;
-            margin-top: 80px;
+            padding: 70px 5% 30px;
+            margin-top: 100px;
         }
 
         .footer-content {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
         }
 
         .footer-section h3 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 1.3rem;
+            color: #ffd700;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
         }
 
         .footer-section h4 {
-            margin-bottom: 15px;
-            color: #cbd5e0;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.2rem;
         }
 
         .footer-section p, .footer-section a {
-            color: #cbd5e0;
+            color: #a0aec0;
             text-decoration: none;
-            line-height: 1.8;
+            line-height: 2;
+            transition: color 0.3s;
+            display: block;
         }
 
         .footer-section a:hover {
-            color: #667eea;
+            color: #ffd700;
         }
 
         .social-links {
             display: flex;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .social-links a {
-            background: #2d3748;
-            width: 40px;
-            height: 40px;
+            background: #1e3c72;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #ffd700;
+            transform: translateY(-5px);
         }
 
         .footer-bottom {
             text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #2d3748;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px solid #1e3c72;
             color: #a0aec0;
+        }
+
+        .footer-bottom p {
+            margin: 10px 0;
+        }
+
+        .footer-bottom .built-with {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .hero .subtitle { font-size: 1.5rem; }
+            .stats { gap: 20px; }
+            .stat-item { padding: 20px; }
+            .stat-item h3 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -371,17 +364,21 @@
     <!-- Hero Section -->
     <section class="hero">
         <h1>✨ DevHub ✨</h1>
-        <p>منصة المبرمجين العرب - اعرض مهاراتك ومشاريعك بشكل احترافي</p>
+        <div class="subtitle">Discover Developers • Showcase Your Skills • Build Your Future</div>
+        <p class="description">
+            المنصة العربية الأولى لعرض مهارات ومشاريع المبرمجين المبتدئين. 
+            ابنِ بروفايلك الاحترافي، تواصل مع فرق العمل، واطلق مستقبلك المهني.
+        </p>
         
         <!-- Statistics -->
         <div class="stats">
             <div class="stat-item">
                 <h3>120+</h3>
-                <p>مبرمج</p>
+                <p>مبرمج مسجل</p>
             </div>
             <div class="stat-item">
                 <h3>350+</h3>
-                <p>مشروع</p>
+                <p>مشروع منشور</p>
             </div>
             <div class="stat-item">
                 <h3>25+</h3>
@@ -392,64 +389,50 @@
         <!-- CTA Buttons -->
         <div class="cta-buttons">
             <a href="developers.html" class="btn btn-primary">👥 استعراض المبرمجين</a>
-            <a href="register.html" class="btn btn-secondary">📝 انضم إلينا</a>
+            <a href="register.html" class="btn btn-secondary">📝 انضم إلينا مجاناً</a>
         </div>
     </section>
-
-    <!-- Search Section -->
-    <div class="search-section">
-        <input type="text" class="search-input" id="searchInput" placeholder="🔍 ابحث عن مبرمج أو لغة برمجة...">
-        <button class="search-btn" onclick="searchDevelopers()">بحث</button>
-    </div>
-
-    <!-- Filter Buttons -->
-    <div class="filter-section" id="filterButtons">
-        <button class="filter-btn active" onclick="filterByLanguage('all')">الكل</button>
-        <button class="filter-btn" onclick="filterByLanguage('JavaScript')">JavaScript</button>
-        <button class="filter-btn" onclick="filterByLanguage('Python')">Python</button>
-        <button class="filter-btn" onclick="filterByLanguage('React')">React</button>
-        <button class="filter-btn" onclick="filterByLanguage('Node.js')">Node.js</button>
-        <button class="filter-btn" onclick="filterByLanguage('HTML/CSS')">HTML/CSS</button>
-    </div>
 
     <!-- Top Developers Section -->
     <h2 class="section-title">🌟 أبرز المبرمجين</h2>
     <div class="developers-grid" id="topDevelopersGrid"></div>
-
-    <!-- All Developers Section -->
-    <h2 class="section-title">👥 جميع المبرمجين</h2>
-    <div class="developers-grid" id="allDevelopersGrid"></div>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
                 <h3>✨ DevHub</h3>
-                <p>منصة المبرمجين العرب المحترفين. نساعدك على بناء مستقبلك المهني في عالم البرمجة.</p>
+                <p>منصة المبرمجين العرب المحترفين. نساعد طلاب الحاسبات والمبرمجين المبتدئين على بناء مستقبلهم المهني.</p>
                 <div class="social-links">
-                    <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.03-2.682-.103-.253-.447-1.27.098-2.646 0 0 .84-.269 2.75 1.025.8-.223 1.65-.334 2.5-.334.85 0 1.7.111 2.5.334 1.91-1.294 2.75-1.025 2.75-1.025.545 1.376.201 2.393.099 2.646.64.698 1.03 1.591 1.03 2.682 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg></a>
-                    <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-                    <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                    <a href="#"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.03-2.682-.103-.253-.447-1.27.098-2.646 0 0 .84-.269 2.75 1.025.8-.223 1.65-.334 2.5-.334.85 0 1.7.111 2.5.334 1.91-1.294 2.75-1.025 2.75-1.025.545 1.376.201 2.393.099 2.646.64.698 1.03 1.591 1.03 2.682 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg></a>
+                    <a href="#"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                    <a href="#"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0z"/></svg></a>
                 </div>
             </div>
             <div class="footer-section">
                 <h4>روابط سريعة</h4>
-                <p><a href="about.html">عن الموقع</a></p>
-                <p><a href="developers.html">المبرمجين</a></p>
-                <p><a href="register.html">انضم إلينا</a></p>
-                <p><a href="login.html">تسجيل دخول</a></p>
+                <a href="index.html">الرئيسية</a>
+                <a href="developers.html">المبرمجين</a>
+                <a href="about.html">عن الموقع</a>
+                <a href="register.html">إنشاء حساب</a>
+                <a href="login.html">تسجيل دخول</a>
             </div>
             <div class="footer-section">
                 <h4>تواصل معنا</h4>
-                <p>📧 devhub@example.com</p>
+                <p>📧 contact@devhub.com</p>
                 <p>🐦 @devhub_arab</p>
                 <p>📞 +20 123 456 789</p>
-                <p>📍 مصر - القاهرة</p>
+                <p>📍 القاهرة، مصر</p>
             </div>
         </div>
         <div class="footer-bottom">
             <p>© 2026 DevHub. جميع الحقوق محفوظة</p>
-            <p>Built with 💖 for Arab developers</p>
+            <p class="built-with">Built with 💖 for Computer Science Students</p>
+            <p style="margin-top: 15px;">
+                <a href="#" style="color: #ffd700; text-decoration: none; margin: 0 10px;">GitHub</a> |
+                <a href="#" style="color: #ffd700; text-decoration: none; margin: 0 10px;">LinkedIn</a> |
+                <a href="#" style="color: #ffd700; text-decoration: none; margin: 0 10px;">Contact</a>
+            </p>
         </div>
     </footer>
 
@@ -459,7 +442,7 @@
             {
                 name: "أحمد حسن",
                 university: "جامعة القاهرة",
-                bio: "مبرمج Frontend شغوف بتصميم واجهات المستخدم",
+                bio: "مبرمج Frontend شغوف بتصميم واجهات المستخدم. خبرة في بناء تطبيقات ويب تفاعلية.",
                 skills: ["JavaScript", "React", "HTML/CSS"],
                 projects: 4,
                 image: null
@@ -467,7 +450,7 @@
             {
                 name: "سارة محمد",
                 university: "جامعة عين شمس",
-                bio: "مبرمجة Backend أحب قواعد البيانات",
+                bio: "مبرمجة Backend متخصصة في قواعد البيانات وبناء APIs.",
                 skills: ["Node.js", "Python", "MongoDB"],
                 projects: 3,
                 image: null
@@ -475,7 +458,7 @@
             {
                 name: "عمر خالد",
                 university: "جامعة الإسكندرية",
-                bio: "مطور Full Stack أحب التحديات",
+                bio: "مطور Full Stack أحب بناء تطبيقات ويب متكاملة.",
                 skills: ["JavaScript", "React", "Node.js", "MySQL"],
                 projects: 6,
                 image: null
@@ -488,7 +471,7 @@
             if (!grid) return;
             
             let html = '';
-            developersToShow.forEach(dev => {
+            developersToShow.slice(0, 3).forEach(dev => {
                 const initial = dev.name.charAt(0);
                 const skillsHtml = dev.skills.slice(0, 4).map(skill => 
                     `<span class="skill-tag">${skill}</span>`
@@ -502,7 +485,6 @@
                         </div>
                         <div class="card-body">
                             <p class="university">${dev.university}</p>
-                            <p class="bio">${dev.bio.substring(0, 60)}...</p>
                             <div class="skills-preview">${skillsHtml}</div>
                             <div class="projects-count">📁 ${dev.projects} مشاريع</div>
                         </div>
@@ -512,44 +494,12 @@
             grid.innerHTML = html;
         }
 
-        // View profile function
         function viewProfile(developer) {
             localStorage.setItem('selectedDeveloper', JSON.stringify(developer));
             window.location.href = 'profile.html';
         }
 
-        // Filter by language
-        function filterByLanguage(language) {
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            filterBtns.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-
-            if (language === 'all') {
-                displayDevelopers(developers, 'allDevelopersGrid');
-            } else {
-                const filtered = developers.filter(dev => dev.skills.includes(language));
-                displayDevelopers(filtered, 'allDevelopersGrid');
-            }
-        }
-
-        // Search function
-        function searchDevelopers() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            if (!searchTerm) {
-                displayDevelopers(developers, 'allDevelopersGrid');
-                return;
-            }
-
-            const filtered = developers.filter(dev => 
-                dev.name.toLowerCase().includes(searchTerm) || 
-                dev.skills.some(skill => skill.toLowerCase().includes(searchTerm))
-            );
-            displayDevelopers(filtered, 'allDevelopersGrid');
-        }
-
-        // Initial display
-        displayDevelopers(developers.slice(0, 2), 'topDevelopersGrid');
-        displayDevelopers(developers, 'allDevelopersGrid');
+        displayDevelopers(developers, 'topDevelopersGrid');
     </script>
 </body>
 </html>
