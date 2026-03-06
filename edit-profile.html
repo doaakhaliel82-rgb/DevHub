@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>تعديل البروفايل - DevHub</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            color: #333;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h2 {
+            text-align: center;
+            color: #667eea;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #764ba2;
+            padding-bottom: 10px;
+        }
+        .section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border-right: 5px solid #764ba2;
+        }
+        .section h3 {
+            margin-top: 0;
+            color: #667eea;
+            border-bottom: 2px solid #764ba2;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+        input:focus, textarea:focus, select:focus {
+            border-color: #764ba2;
+            outline: none;
+        }
+        .skill-row, .project-row {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(102,126,234,0.1);
+            border: 1px solid #f0f0f0;
+        }
+        .add-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            margin: 10px 0;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .add-btn:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+        .remove-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            float: left;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .remove-btn:hover {
+            background: #c82333;
+        }
+        .save-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 20px;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .save-btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+        .completion-bar {
+            width: 100%;
+            height: 25px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .completion-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            border-radius: 15px;
+            transition: width 0.3s;
+        }
+        .nav-links {
+            text-align: center;
+            margin-top: 25px;
+        }
+        .nav-links a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        .nav-links a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        .lang-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            padding: 10px 20px;
+            background: #764ba2;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        h4 {
+            color: #667eea;
+            margin: 15px 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <button class="lang-btn" onclick="toggleLanguage()">🌐 English</button>
+
+    <div class="container">
+        <h2 id="page-title">✏️ تعديل البروفايل</h2>
+        
+        <!-- شريط نسبة الإنجاز -->
+        <div class="section">
+            <h3 id="completion-title">📊 نسبة اكتمال البروفايل</h3>
+            <div class="completion-bar">
+                <div class="completion-fill" id="completionFill"></div>
+            </div>
+            <p id="completionText" style="text-align: center; font-weight: bold; color: #667eea;">0%</p>
+        </div>
+
+        <!-- المعلومات الأساسية -->
+        <div class="section">
+            <h3 id="basic-title">👤 المعلومات الأساسية</h3>
+            <input type="text" id="name" placeholder="الاسم">
+            <input type="text" id="university" placeholder="الجامعة">
+            <textarea id="bio" placeholder="نبذة عني" rows="4"></textarea>
+        </div>
+
+        <!-- المهارات -->
+        <div class="section">
+            <h3 id="skills-title">🛠️ المهارات</h3>
+            <div id="skillsContainer"></div>
+            <button class="add-btn" onclick="addSkill()" id="add-skill-btn">+ إضافة مهارة</button>
+        </div>
+
+        <!-- المشاريع -->
+        <div class="section">
+            <h3 id="projects-title">📁 المشاريع</h3>
+            <div id="projectsContainer"></div>
+            <button class="add-btn" onclick="addProject()" id="add-project-btn">+ إضافة مشروع</button>
+        </div>
+
+        <!-- أزرار الحفظ والرجوع -->
+        <button class="save-btn" onclick="saveProfile()" id="save-btn">💾 حفظ التغييرات</button>
+        
+        <div class="nav-links">
+            <a href="profile.html" id="view-profile-link">عرض البروفايل</a>
+            <a href="index.html" id="home-link">العودة للرئيسية</a>
+        </div>
+    </div>
+
+    <script>
+        let isArabic = true;
+
+        function toggleLanguage() {
+            isArabic = !isArabic;
+            const button = document.querySelector('.lang-btn');
+            button.textContent = isArabic ? '🌐 English' : '🌐 العربية';
+            document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
+            document.documentElement.lang = isArabic ? 'ar' : 'en';
+            updateTexts();
+        }
+
+        function updateTexts() {
+            document.getElementById('page-title').textContent = isArabic ? '✏️ تعديل البروفايل' : '✏️ Edit Profile';
+            document.getElementById('completion-title').textContent = isArabic ? '📊 نسبة اكتمال البروفايل' : '📊 Profile Completion';
+            document.getElementById('basic-title').textContent = isArabic ? '👤 المعلومات الأساسية' : '👤 Basic Info';
+            document.getElementById('skills-title').textContent = isArabic ? '🛠️ المهارات' : '🛠️ Skills';
+            document.getElementById('projects-title').textContent = isArabic ? '📁 المشاريع' : '📁 Projects';
+            document.getElementById('add-skill-btn').textContent = isArabic ? '+ إضافة مهارة' : '+ Add Skill';
+            document.getElementById('add-project-btn').textContent = isArabic ? '+ إضافة مشروع' : '+ Add Project';
+            document.getElementById('save-btn').textContent = isArabic ? '💾 حفظ التغييرات' : '💾 Save Changes';
+            document.getElementById('view-profile-link').textContent = isArabic ? 'عرض البروفايل' : 'View Profile';
+            document.getElementById('home-link').textContent = isArabic ? 'العودة للرئيسية' : 'Back to Home';
+            
+            document.getElementById('name').placeholder = isArabic ? 'الاسم' : 'Name';
+            document.getElementById('university').placeholder = isArabic ? 'الجامعة' : 'University';
+            document.getElementById('bio').placeholder = isArabic ? 'نبذة عني' : 'About me';
+        }
+
+        // بيانات المستخدم
+        let userData = {
+            name: '',
+            university: '',
+            bio: '',
+            image: 'default-avatar.png',
+            skills: [],
+            projects: []
+        };
+
+        // تحميل البيانات المخزنة
+        const savedUser = localStorage.getItem('editUser');
+        if (savedUser) {
+            userData = JSON.parse(savedUser);
+        }
+
+        // عرض البيانات
+        document.getElementById('name').value = userData.name || '';
+        document.getElementById('university').value = userData.university || '';
+        document.getElementById('bio').value = userData.bio || '';
+
+        // عرض المهارات
+        function displaySkills() {
+            const container = document.getElementById('skillsContainer');
+            container.innerHTML = '';
+            
+            userData.skills.forEach((skill, index) => {
+                container.innerHTML += `
+                    <div class="skill-row">
+                        <h4>مهارة ${index + 1}</h4>
+                        <input type="text" value="${skill.name || ''}" placeholder="اسم المهارة" onchange="updateSkill(${index}, 'name', this.value)">
+                        <select onchange="updateSkill(${index}, 'level', this.value)">
+                            <option value="50" ${skill.level == 50 ? 'selected' : ''}>50% - مبتدئ</option>
+                            <option value="70" ${skill.level == 70 ? 'selected' : ''}>70% - متوسط</option>
+                            <option value="90" ${skill.level == 90 ? 'selected' : ''}>90% - متقدم</option>
+                        </select>
+                        <button class="remove-btn" onclick="removeSkill(${index})">✖ حذف</button>
+                        <div style="clear:both"></div>
+                    </div>
+                `;
+            });
+        }
+
+        // عرض المشاريع
+        function displayProjects() {
+            const container = document.getElementById('projectsContainer');
+            container.innerHTML = '';
+            
+            userData.projects.forEach((project, index) => {
+                container.innerHTML += `
+                    <div class="project-row">
+                        <h4>مشروع ${index + 1}</h4>
+                        <input type="text" value="${project.title || ''}" placeholder="عنوان المشروع" onchange="updateProject(${index}, 'title', this.value)">
+                        <textarea placeholder="وصف المشروع" rows="2" onchange="updateProject(${index}, 'description', this.value)">${project.description || ''}</textarea>
+                        <input type="text" value="${(project.technologies || []).join(', ')}" placeholder="التقنيات (مفصولة بفواصل)" onchange="updateProjectTech(${index}, this.value)">
+                        <input type="text" value="${project.githubLink || ''}" placeholder="رابط GitHub" onchange="updateProject(${index}, 'githubLink', this.value)">
+                        <button class="remove-btn" onclick="removeProject(${index})">✖ حذف المشروع</button>
+                        <div style="clear:both"></div>
+                    </div>
+                `;
+            });
+        }
+
+        // دوال التحديث
+        function updateSkill(index, field, value) {
+            userData.skills[index][field] = field === 'level' ? parseInt(value) : value;
+            updateCompletion();
+        }
+
+        function updateProject(index, field, value) {
+            userData.projects[index][field] = value;
+            updateCompletion();
+        }
+
+        function updateProjectTech(index, value) {
+            userData.projects[index].technologies = value.split(',').map(tech => tech.trim());
+            updateCompletion();
+        }
+
+        function addSkill() {
+            userData.skills.push({ name: '', level: 50 });
+            displaySkills();
+            updateCompletion();
+        }
+
+        function removeSkill(index) {
+            userData.skills.splice(index, 1);
+            displaySkills();
+            updateCompletion();
+        }
+
+        function addProject() {
+            userData.projects.push({ title: '', description: '', technologies: [], githubLink: '' });
+            displayProjects();
+            updateCompletion();
+        }
+
+        function removeProject(index) {
+            userData.projects.splice(index, 1);
+            displayProjects();
+            updateCompletion();
+        }
+
+        // حساب نسبة الإنجاز
+        function updateCompletion() {
+            let completed = 0;
+            if (userData.name) completed++;
+            if (userData.university) completed++;
+            if (userData.bio && userData.bio.length > 10) completed++;
+            if (userData.skills.length >= 3) completed++;
+            if (userData.projects.length > 0) completed++;
+            
+            const percentage = (completed / 5) * 100;
+            
+            document.getElementById('completionFill').style.width = percentage + '%';
+            document.getElementById('completionText').textContent = percentage.toFixed(0) + '%';
+        }
+
+        // حفظ البيانات
+        function saveProfile() {
+            userData.name = document.getElementById('name').value;
+            userData.university = document.getElementById('university').value;
+            userData.bio = document.getElementById('bio').value;
+            
+            localStorage.setItem('editUser', JSON.stringify(userData));
+            alert(isArabic ? '✅ تم حفظ التغييرات بنجاح' : '✅ Changes saved successfully');
+            window.location.href = 'profile.html';
+        }
+
+        // تهيئة الصفحة
+        displaySkills();
+        displayProjects();
+        updateCompletion();
+        updateTexts();
+    </script>
+</body>
+</html>

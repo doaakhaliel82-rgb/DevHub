@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>المبرمجين - DevHub</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 3rem;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .nav-bar {
+            background: white;
+            padding: 15px;
+            border-radius: 50px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .nav-bar a {
+            margin: 0 15px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .nav-bar a:hover { text-decoration: underline; color: #764ba2; }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            width: 280px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: right;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            border: 2px solid #764ba2;
+        }
+        .avatar {
+            width: 80px;
+            height: 80px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 15px;
+        }
+        .name { font-size: 22px; font-weight: bold; margin: 10px 0; text-align: center; color: #667eea; }
+        .university { color: #666; margin: 5px 0; text-align: center; }
+        .bio { color: #444; margin: 10px 0; font-size: 14px; }
+        .skills { display: flex; flex-wrap: wrap; gap: 5px; margin: 15px 0; }
+        .skill-tag {
+            background: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #667eea;
+            border: 1px solid #764ba2;
+        }
+        .projects-count {
+            color: #667eea;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .filter-select {
+            padding: 12px;
+            border-radius: 50px;
+            border: 2px solid white;
+            font-size: 16px;
+            margin: 20px auto;
+            width: 300px;
+            display: block;
+            background: white;
+            color: #667eea;
+            font-weight: bold;
+        }
+        .lang-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            padding: 10px 20px;
+            background: #764ba2;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <button class="lang-btn" onclick="toggleLanguage()">🌐 English</button>
+
+    <h1 id="page-title">✨ DevHub ✨</h1>
+    
+    <div class="nav-bar" id="nav-bar">
+        <a href="index.html" id="nav-home">الرئيسية</a>
+        <a href="developers.html" id="nav-devs">المبرمجين</a>
+        <a href="register.html" id="nav-register">إنشاء حساب</a>
+        <a href="login.html" id="nav-login">تسجيل دخول</a>
+    </div>
+    
+    <select class="filter-select" id="languageFilter">
+        <option value="all" id="filter-all">كل اللغات</option>
+        <option value="JavaScript">JavaScript</option>
+        <option value="Python">Python</option>
+        <option value="React">React</option>
+        <option value="Node.js">Node.js</option>
+        <option value="MongoDB">MongoDB</option>
+        <option value="HTML/CSS">HTML/CSS</option>
+        <option value="MySQL">MySQL</option>
+    </select>
+    
+    <div class="container" id="developersGrid"></div>
+
+    <script>
+        let isArabic = true;
+
+        function toggleLanguage() {
+            isArabic = !isArabic;
+            const button = document.querySelector('.lang-btn');
+            button.textContent = isArabic ? '🌐 English' : '🌐 العربية';
+            
+            document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
+            document.documentElement.lang = isArabic ? 'ar' : 'en';
+            
+            updateTexts();
+        }
+
+        function updateTexts() {
+            const texts = {
+                'page-title': isArabic ? '✨ DevHub ✨' : '✨ DevHub ✨',
+                'nav-home': isArabic ? 'الرئيسية' : 'Home',
+                'nav-devs': isArabic ? 'المبرمجين' : 'Developers',
+                'nav-register': isArabic ? 'إنشاء حساب' : 'Sign Up',
+                'nav-login': isArabic ? 'تسجيل دخول' : 'Login',
+                'filter-all': isArabic ? 'كل اللغات' : 'All Languages'
+            };
+            
+            for (let [id, text] of Object.entries(texts)) {
+                const el = document.getElementById(id);
+                if (el) el.textContent = text;
+            }
+        }
+
+        const developers = [
+            { name: "أحمد حسن", university: "جامعة القاهرة", bio: "مبرمج Frontend شغوف بتصميم واجهات المستخدم", skills: ["JavaScript", "React", "HTML/CSS"], projects: 3 },
+            { name: "سارة محمد", university: "جامعة عين شمس", bio: "مبرمجة Backend أحب قواعد البيانات", skills: ["Node.js", "Python", "MongoDB"], projects: 2 },
+            { name: "عمر خالد", university: "جامعة الإسكندرية", bio: "مطور Full Stack أحب التحديات", skills: ["JavaScript", "React", "Node.js", "MySQL"], projects: 5 }
+        ];
+
+        function displayDevelopers(developersToShow) {
+            const grid = document.getElementById('developersGrid');
+            let html = '';
+            developersToShow.forEach(dev => {
+                const initial = dev.name.charAt(0);
+                const skillsHtml = dev.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('');
+                html += `
+                    <div class="card" onclick='viewProfile(${JSON.stringify(dev).replace(/'/g, "\\'")})'>
+                        <div class="avatar">${initial}</div>
+                        <div class="name">${dev.name}</div>
+                        <div class="university">${dev.university}</div>
+                        <p class="bio">${dev.bio}</p>
+                        <div class="skills">${skillsHtml}</div>
+                        <div class="projects-count">عدد المشاريع: ${dev.projects}</div>
+                    </div>
+                `;
+            });
+            grid.innerHTML = html;
+        }
+
+        function viewProfile(developer) {
+            localStorage.setItem('selectedDeveloper', JSON.stringify(developer));
+            window.location.href = 'profile.html';
+        }
+
+        document.getElementById('languageFilter').addEventListener('change', function(e) {
+            const language = e.target.value;
+            if (language === 'all') displayDevelopers(developers);
+            else {
+                const filtered = developers.filter(dev => dev.skills.includes(language));
+                displayDevelopers(filtered);
+            }
+        });
+
+        displayDevelopers(developers);
+    </script>
+</body>
+</html>
