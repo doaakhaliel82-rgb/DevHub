@@ -21,7 +21,6 @@
             min-height: 100vh;
         }
 
-        /* Navbar */
         .navbar {
             background: white;
             padding: 1rem 5%;
@@ -29,6 +28,7 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 100%;
         }
 
         .logo {
@@ -54,7 +54,6 @@
             color: #1e3c72;
         }
 
-        /* Responsive Navbar */
         @media (max-width: 1024px) {
             .nav-links {
                 gap: 1rem;
@@ -94,7 +93,6 @@
             }
         }
 
-        /* Edit Profile Container */
         .edit-container {
             max-width: 900px;
             margin: 40px auto;
@@ -131,7 +129,6 @@
             }
         }
 
-        /* Form Sections */
         .form-section {
             background: #f8f9fa;
             border-radius: 20px;
@@ -178,7 +175,6 @@
             outline: none;
         }
 
-        /* Image Upload */
         .image-upload {
             display: flex;
             flex-direction: column;
@@ -219,7 +215,6 @@
             font-weight: 500;
         }
 
-        /* Skills Section */
         .skills-container {
             display: flex;
             flex-direction: column;
@@ -282,7 +277,6 @@
             font-weight: 600;
         }
 
-        /* Projects Section */
         .projects-container {
             display: flex;
             flex-direction: column;
@@ -330,7 +324,6 @@
             font-weight: 600;
         }
 
-        /* Completion Bar */
         .completion-section {
             background: #f0f4ff;
             padding: 20px;
@@ -371,7 +364,6 @@
             background: #218838;
         }
 
-        /* Footer */
         .footer {
             background: #0a1a2f;
             color: white;
@@ -450,7 +442,7 @@
                 <div class="completion-bar">
                     <div class="completion-fill" id="completionFill" style="width: 0%"></div>
                 </div>
-                <div class="completion-text" id="completionText">0%</div>
+                <div class="completion-text" id="completionText" style="text-align: center; font-weight: bold; color: #1e3c72;">0%</div>
             </div>
 
             <div class="form-section">
